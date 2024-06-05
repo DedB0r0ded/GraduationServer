@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_160423) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_160732) do
   create_table "components", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -18,6 +18,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_160423) do
     t.date "manufacture_year"
     t.integer "manufacturer_id"
     t.string "pic_route"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contract_maintenance_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "component_id"
+    t.integer "contract_id"
+    t.integer "maintenance_date_info_id"
+    t.integer "replacement_date_info_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
