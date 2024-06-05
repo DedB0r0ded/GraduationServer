@@ -4,7 +4,7 @@ class CreateServices < ActiveRecord::Migration[7.1]
       t.integer :default_item_id
       t.string :name
       t.text :description
-      
+
       t.timestamps
     end
   end
