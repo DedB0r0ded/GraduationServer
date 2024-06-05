@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_165426) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_171308) do
   create_table "components", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -94,9 +94,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_165426) do
   end
 
   create_table "organisation_services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "service_id"
-    t.integer "item_id"
-    t.integer "organisation_id"
+    t.bigint "service_id"
+    t.bigint "item_id"
+    t.bigint "organisation_id"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
