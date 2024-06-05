@@ -11,7 +11,7 @@ class CreateContracts < ActiveRecord::Migration[7.1]
       t.integer :date_info_id
       t.integer :customer_id
       t.integer :contractor_id
-      
+
       t.timestamps
     end
   end
