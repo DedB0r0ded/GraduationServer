@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_153113) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_154704) do
+  create_table "manufacturers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.string "country"
+    t.text "description"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "organisations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "tid"
     t.boolean "client_only"
@@ -95,6 +105,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_153113) do
     t.integer "user_id"
     t.integer "state"
     t.integer "power"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "contractor_user_id"
+    t.integer "customer_user_id"
+    t.integer "contractor_id"
+    t.integer "customer_id"
+    t.integer "contract_id"
+    t.string "subject"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
