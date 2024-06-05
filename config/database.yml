@@ -5,9 +5,14 @@
 #   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  database: rails_frius
+  username: <%= ENV.fetch("MYSQL_USER") %>
+  password: <%= ENV.fetch("MYSQL_PWD") %>
+  host: localhost
 
 development:
   <<: *default
