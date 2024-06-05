@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration[7.1]
       t.integer :user_id
       t.integer :facility_id
       t.datetime :app_created_at
-      t.int :rating
+      t.integer :rating
       t.string :subject
       t.text :body
 
@@ -12,3 +12,4 @@ class CreateReviews < ActiveRecord::Migration[7.1]
     end
   end
 end
+
