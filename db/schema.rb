@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_161351) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_161627) do
   create_table "components", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -35,6 +35,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_161351) do
     t.integer "contract_id"
     t.integer "organisation_service_id"
     t.datetime "at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contracts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "parent_id"
+    t.boolean "continuous"
+    t.boolean "urgent"
+    t.string "subject"
+    t.string "pdf_path"
+    t.integer "total_cost"
+    t.integer "currency"
+    t.integer "date_info_id"
+    t.integer "customer_id"
+    t.integer "contractor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
