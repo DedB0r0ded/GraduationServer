@@ -10,46 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_162443) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_05_165426) do
   create_table "components", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "serial_number"
     t.date "manufacture_year"
-    t.integer "manufacturer_id"
+    t.bigint "manufacturer_id"
     t.string "pic_route"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "contract_maintenance_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "component_id"
-    t.integer "contract_id"
-    t.integer "maintenance_date_info_id"
-    t.integer "replacement_date_info_id"
+    t.bigint "component_id"
+    t.bigint "contract_id"
+    t.bigint "maintenance_date_info_id"
+    t.bigint "replacement_date_info_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "contract_services", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "contract_id"
-    t.integer "organisation_service_id"
+    t.bigint "contract_id"
+    t.bigint "organisation_service_id"
     t.datetime "at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "contracts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "parent_id"
+    t.bigint "parent_id"
     t.boolean "continuous"
     t.boolean "urgent"
     t.string "subject"
     t.string "pdf_path"
     t.integer "total_cost"
     t.integer "currency"
-    t.integer "date_info_id"
-    t.integer "customer_id"
-    t.integer "contractor_id"
+    t.bigint "date_info_id"
+    t.bigint "customer_id"
+    t.bigint "contractor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,16 +69,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_162443) do
     t.text "description"
     t.string "serial_number"
     t.date "manufacture_year"
-    t.integer "manufacturer_id"
+    t.bigint "manufacturer_id"
     t.string "pic_route"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "component_id"
-    t.integer "facility_id"
-    t.integer "default_date_info_id"
+    t.bigint "component_id"
+    t.bigint "facility_id"
+    t.bigint "default_date_info_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -118,7 +118,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_162443) do
   end
 
   create_table "reg_key_privileges", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "reg_key_id"
+    t.bigint "reg_key_id"
     t.boolean "task_create_org"
     t.boolean "task_create_self"
     t.boolean "task_delete_org"
@@ -182,8 +182,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_162443) do
 
   create_table "reg_keys", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "value"
-    t.integer "organisation_id"
-    t.integer "user_id"
+    t.bigint "organisation_id"
+    t.bigint "user_id"
     t.integer "state"
     t.integer "power"
     t.datetime "created_at", null: false
