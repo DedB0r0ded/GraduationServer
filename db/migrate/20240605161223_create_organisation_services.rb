@@ -5,7 +5,7 @@ class CreateOrganisationServices < ActiveRecord::Migration[7.1]
       t.integer :item_id
       t.integer :organisation_id
       t.integer :price
-      
+
       t.timestamps
     end
   end
