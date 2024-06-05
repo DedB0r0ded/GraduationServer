@@ -5,7 +5,7 @@ class CreateContractMaintenanceItems < ActiveRecord::Migration[7.1]
       t.integer :contract_id
       t.integer :maintenance_date_info_id
       t.integer :replacement_date_info_id
-      
+
       t.timestamps
     end
   end
