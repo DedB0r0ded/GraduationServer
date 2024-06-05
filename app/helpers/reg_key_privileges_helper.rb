@@ -1,0 +1,2 @@
+module RegKeyPrivilegesHelper
+end
