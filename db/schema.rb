@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_05_171931) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_18_223152) do
   create_table "components", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -117,67 +117,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_05_171931) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reg_key_privileges", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "reg_key_id"
-    t.boolean "task_create_org"
-    t.boolean "task_create_self"
-    t.boolean "task_delete_org"
-    t.boolean "task_delete_self"
-    t.boolean "task_update_org"
-    t.boolean "task_update_self"
-    t.boolean "task_assign_org"
-    t.boolean "task_assign_self"
-    t.boolean "task_read_org"
-    t.boolean "task_read_self"
-    t.boolean "task_delete_ignore_power"
-    t.boolean "task_update_ignore_power"
-    t.boolean "task_read_ignore_power"
-    t.boolean "task_assign_ignore_power"
-    t.boolean "organisation_delete"
-    t.boolean "organisation_service_create"
-    t.boolean "organisation_service_read"
-    t.boolean "organisation_service_delete"
-    t.boolean "reg_key_gen"
-    t.boolean "reg_key_recall"
-    t.boolean "reg_key_grant_privileges"
-    t.boolean "contract_send_request"
-    t.boolean "contract_conclude"
-    t.boolean "contract_recall"
-    t.boolean "contract_add_service"
-    t.boolean "contract_delete_service"
-    t.boolean "contract_add_mnt_item"
-    t.boolean "contract_delete_mnt_item"
-    t.boolean "contract_add_service_concluded"
-    t.boolean "contract_delete_service_concluded"
-    t.boolean "contract_add_mnt_item_concluded"
-    t.boolean "contract_delete_mnt_item_concluded"
-    t.boolean "report_create"
-    t.boolean "report_delete_org"
-    t.boolean "report_delete_self"
-    t.boolean "report_update_org"
-    t.boolean "report_update_self"
-    t.boolean "report_read_org"
-    t.boolean "report_read_self"
-    t.boolean "manufacturer_create"
-    t.boolean "manufacturer_read"
-    t.boolean "manufacturer_update"
-    t.boolean "manufacturer_delete"
-    t.boolean "g_facility_create"
-    t.boolean "g_facility_read"
-    t.boolean "g_facility_update"
-    t.boolean "g_facility_delete"
-    t.boolean "g_component_create"
-    t.boolean "g_component_read"
-    t.boolean "g_component_update"
-    t.boolean "g_component_delete"
-    t.boolean "g_item_create"
-    t.boolean "g_item_read"
-    t.boolean "g_item_delete"
-    t.boolean "g_service_create"
-    t.boolean "g_service_read"
-    t.boolean "g_service_delete"
+  create_table "privileges", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "alias_en"
+    t.string "alias_ru"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reg_key_privileges", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "reg_key_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "privilege_id"
   end
 
   create_table "reg_keys", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

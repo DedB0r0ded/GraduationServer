@@ -6,9 +6,9 @@ class User < ApplicationRecord
   has_many :reports, inverse_of: 'contractor_user'
   has_many :reports, inverse_of: 'customer_user'
 
-  validates :first_name, presence: true, length: { maximum: 64 }
-  validates :middle_name, length: { maximum: 64 }
-  validates :last_name, length: { maximum: 64 }
-  validates :email, presence: true
+  validates :first_name, presence: true, length: { maximum: 32 }
+  validates :middle_name, length: { maximum: 32 }
+  validates :last_name, length: { maximum: 32 }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :pwd_hash, presence: true
 end
