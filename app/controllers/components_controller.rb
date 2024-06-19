@@ -5,8 +5,7 @@ class ComponentsController < ApplicationController
   end
 
   def show
-
-    if set_instance
+    if find_instance
       render json: @component, status: :ok
     else
       render json: {}, status: :not_found
@@ -29,8 +28,8 @@ class ComponentsController < ApplicationController
   end
 
   def update
-    set_instance
-    if @component.update(instance_params)
+    find_instance
+    if @component.update!(instance_params)
       render json: @component, status: :ok
     else
       render json: {}, status: :not_found
@@ -38,6 +37,7 @@ class ComponentsController < ApplicationController
   end
 
   def destroy
+    find_instance
     if @component.destroy
       render json: @component, status: :ok
     else
@@ -46,7 +46,7 @@ class ComponentsController < ApplicationController
   end
 
   private
-  def set_instance
+  def find_instance
     @component = Component.find(params[:id])
   end
 

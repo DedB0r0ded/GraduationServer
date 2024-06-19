@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Manufacturer < ApplicationRecord
-  has_many :components, :facilities
+  has_many :components
+  has_many :facilities
 
   validates :name, presence: true, length: { minimum: 4, maximum: 128 }
   validates :code, presence: true, length: { is: 4 }
