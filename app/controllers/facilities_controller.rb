@@ -12,9 +12,6 @@ class FacilitiesController < ApplicationController
     end
   end
 
-  def new
-  end
-
   def create
     @facility = Facility.new(instance_params)
     if @facility.save
@@ -24,13 +21,11 @@ class FacilitiesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     find_instance
+    old = @facility.dup
     if @facility.update!(instance_params)
-      render json: @facility, status: :ok
+      render json: { old: old, new: @facility }, status: :ok
     else
       render json: {}, status: :not_found
     end

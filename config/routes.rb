@@ -4,6 +4,9 @@ Rails.application.routes.draw do
             :reg_keys, :reg_key_privileges, :reports, :reviews, :services, :tasks, :users,
             only: [:index, :show, :create, :update, :destroy]
 
+  resource :facilities do
+
+  end
   # Defines the root path route ("/")
   # root "posts#index"
   # TODO: member and collection routes for entities displayed in Qt app client

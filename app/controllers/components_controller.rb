@@ -12,9 +12,6 @@ class ComponentsController < ApplicationController
     end
   end
 
-  def new
-  end
-
   def create
     @component = Component.new(instance_params)
     if @component.save
@@ -22,9 +19,6 @@ class ComponentsController < ApplicationController
     else
       render json: @component.errors, status: :unprocessable_entity
     end
-  end
-
-  def edit
   end
 
   def update
@@ -38,8 +32,9 @@ class ComponentsController < ApplicationController
 
   def destroy
     find_instance
-    if @component.destroy
-      render json: @component, status: :ok
+    old = @component.dup
+    if @component.update!(instance_params)
+      render json: { old: old, new: @component }, status: :ok
     else
       render json: {}, status: :not_found
     end

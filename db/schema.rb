@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_18_223152) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_232533) do
   create_table "components", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -78,7 +78,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_223152) do
   create_table "items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "component_id"
     t.bigint "facility_id"
-    t.bigint "default_date_info_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -130,6 +129,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_223152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "privilege_id"
+    t.boolean "granted"
   end
 
   create_table "reg_keys", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -143,15 +143,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_18_223152) do
   end
 
   create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "contractor_user_id"
-    t.integer "customer_user_id"
-    t.integer "contractor_id"
-    t.integer "customer_id"
     t.integer "contract_id"
     t.string "subject"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "contractor_reg_key_id"
+    t.bigint "customer_reg_key_id"
   end
 
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
