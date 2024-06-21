@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :components, :contract_maintenance_items, :contract_services, :contracts,
             :date_infos, :facilities, :items, :manufacturers, :organisation_services, :organisations,
-            :reg_keys, :reg_key_privileges, :reports, :reviews, :services, :tasks, :users,
+            :reg_keys, :reg_key_privileges, :privileges, :reports, :reviews, :services, :tasks, :users,
             only: [:index, :show, :create, :update, :destroy]
 
   resource :facilities do

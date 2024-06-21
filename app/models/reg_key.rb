@@ -1,7 +1,8 @@
 class RegKey < ApplicationRecord
   belongs_to :organisation
   belongs_to :user
-  has_one :reg_key_privilege, dependent: :destroy
+  has_many :reg_key_privileges
+  has_many :privileges, through: :reg_key_privileges
   has_many :reports, inverse_of: 'contractor_reg_key'
   has_many :reports, inverse_of: 'customer_reg_key'
 

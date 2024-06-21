@@ -2,6 +2,7 @@
 
 class Component < ApplicationRecord
   belongs_to :manufacturer
+  has_many :items
   has_many :facilities, through: :items
 
   validates :name, presence: true, length: { minimum: 4, maximum: 64 }
